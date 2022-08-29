@@ -9,7 +9,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - .:/test
+      - .:/test-project
     command: "python3 app.py"
   cache:
     image: redis:alpine
@@ -28,7 +28,7 @@ services:
       - web
       - cache
     volumes:
-      - .:/project
+      - .:/test-project
     environment:
       - BROKER_URL=redis://cache:6379/0
       - RESULT_BACKEND=redis://cache:6379/0
